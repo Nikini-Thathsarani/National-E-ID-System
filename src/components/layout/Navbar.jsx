@@ -1,13 +1,14 @@
 import "../../styles/Navbar.css";
+import logo from "../../assets/logos/logo.jpeg";
 
 function Navbar() {
   return (
     <nav className="navbar">
 
-      <div className="logo">
-        🛡️  National e-ID
-      </div>
-
+     <div className="logo">
+  <img src={logo} alt="National e-ID Logo" />
+  <span>National E-ID</span>
+</div>
       <ul className="nav-links">
         <li>Home</li>
         <li>Features</li>
