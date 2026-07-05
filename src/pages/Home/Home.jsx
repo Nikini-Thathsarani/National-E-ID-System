@@ -5,6 +5,8 @@ import Hero from "../../components/home/Hero";
 import Statistics from "../../components/home/Statistics";
 import Features from "../../components/home/Features";
 import HowItWorks from "../../components/home/HowItWorks";
+import Security from "../../components/home/Security";
+import Benefits from "../../components/home/Benefits";
 
 function Home() {
   return (
@@ -15,6 +17,8 @@ function Home() {
       <Statistics />
       <Features />
       <HowItWorks />
+      <Security />
+      <Benefits />
     </>
   );
 }
