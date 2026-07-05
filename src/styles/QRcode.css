@@ -1,0 +1,10 @@
+.page {
+  padding: 20px;
+}
+
+.qr-box {
+  background: white;
+  padding: 20px;
+  width: fit-content;
+  border-radius: 10px;
+}
