@@ -1,20 +1,27 @@
 import React from 'react';
 
-const QrScanner = ({ idStatus }) => {
+const QrScanner = () => {
   return (
-    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col justify-between gap-4 shadow-lg">
-      <h4 className="text-lg font-semibold text-white tracking-wide">QR Code Scanner</h4>
-      <div className="flex items-center gap-4 bg-white/5 p-3 rounded-xl mt-auto border border-white/5">
-        <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-[10px] text-black font-extrabold shrink-0 shadow-md">
+    <div className="h-full p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg text-white flex flex-col justify-between">
+      <div>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-2.5 bg-white/15 rounded-xl border border-white/10 text-xl">🔍</div>
+          <div>
+            <h4 className="font-bold text-lg text-white">QR Code Scanner</h4>
+            <p className="text-white/60 text-xs">QR කේත ස්කෑනරය / QR குறியீடு ஸ்கேனர்</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
+        <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-slate-900 font-bold text-xs shadow-inner">
           [ QR ]
         </div>
         <div>
-          <p className="text-sm font-semibold text-white">Sample code</p>
-          <div className="flex items-center gap-1.5 mt-1">
-            <span className="text-[11px] text-gray-400">Status:</span>
-            <span className="px-2 py-0.5 text-[10px] bg-green-500/20 text-green-400 rounded-full font-semibold border border-green-500/30">
-              {idStatus}
-            </span>
+          <h5 className="font-semibold text-sm text-white">Sample Code Scanner</h5>
+          <div className="flex items-center gap-2 mt-1">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="text-xs text-white/60">Ready to Scan</span>
           </div>
         </div>
       </div>
