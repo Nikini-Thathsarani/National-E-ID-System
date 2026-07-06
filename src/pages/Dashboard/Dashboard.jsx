@@ -1,6 +1,5 @@
 // src/pages/Dashboard/Dashboard.jsx
 import React from 'react';
-import Sidebar from './Sidebar';
 import HeroCard from './HeroCard';
 import WelcomeBar from './WelcomeBar';
 import IdSummary from './Widgets/IdSummary';
@@ -10,23 +9,25 @@ import QrScanner from './Widgets/QrScanner';
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-slate-950 text-white">
-      {/* Sidebar Navigation */}
-      <Sidebar />
-
+    // 💡 flex-row සහ Sidebar එක අයින් කරලා content එක විතරක් ගත්තා
+    <div className="w-full text-white">
       {/* Main Grid Wrapper */}
-      <main className="flex-1 p-6 lg:p-10 grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-[1400px] mx-auto w-full">
+      <main className="grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-[1400px] mx-auto w-full">
+        
+        {/* Left Column Widgets */}
         <div className="flex flex-col gap-6">
           <HeroCard />
           <WelcomeBar />
         </div>
         
+        {/* Right Column Widgets */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <IdSummary />
           <Notifications />
           <DocumentUpload />
           <QrScanner />
         </div>
+
       </main>
     </div>
   );
