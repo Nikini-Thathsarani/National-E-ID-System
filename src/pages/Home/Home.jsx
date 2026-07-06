@@ -7,6 +7,7 @@ import Features from "../../components/home/Features";
 import HowItWorks from "../../components/home/HowItWorks";
 import Security from "../../components/home/Security";
 import Benefits from "../../components/home/Benefits";
+import FAQ from "../../components/home/FAQ";
 
 function Home() {
   return (
@@ -19,6 +20,7 @@ function Home() {
       <HowItWorks />
       <Security />
       <Benefits />
+      <FAQ />
     </>
   );
 }
