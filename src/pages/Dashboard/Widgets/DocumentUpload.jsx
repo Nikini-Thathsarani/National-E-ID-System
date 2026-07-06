@@ -2,21 +2,21 @@ import React from 'react';
 
 const DocumentUpload = () => {
   return (
-    <div className="h-full p-6 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg text-white flex flex-col justify-between">
+    <div className="h-full p-6 bg-white/50 backdrop-blur-lg rounded-2xl border border-white/60 shadow-md text-slate-800 flex flex-col justify-between">
       <div>
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2.5 bg-white/15 rounded-xl border border-white/10 text-xl">📄</div>
+          <div className="p-2.5 bg-slate-800/10 rounded-xl text-xl">📄</div>
           <div>
-            <h4 className="font-bold text-lg text-white">Document Vault</h4>
-            <p className="text-white/60 text-xs">ලේඛන ගබඩාව / ஆவணக் களஞ்சியம்</p>
+            <h4 className="font-bold text-lg text-slate-900">Document Vault</h4>
+            <p className="text-slate-600 text-xs">ලේඛන ගබඩාව / ஆவணக் களஞ்சியம்</p>
           </div>
         </div>
-        <p className="text-white/80 text-sm mt-2">
+        <p className="text-slate-700 text-sm mt-2">
           Upload your document. ලේඛන මෙතැනින් උඩුගත කරන්න / உங்கள் ஆவணங்களை இங்கே பதிவேற்றவும்.
         </p>
       </div>
 
-      <button className="mt-4 w-full py-2.5 bg-white/15 hover:bg-white/25 border border-white/20 text-white font-medium rounded-xl transition duration-200 text-sm">
+      <button className="mt-4 w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition duration-200 text-sm shadow-sm">
         Browse Files
       </button>
     </div>

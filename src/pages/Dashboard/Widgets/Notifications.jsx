@@ -2,36 +2,21 @@ import React from 'react';
 
 const Notifications = () => {
   return (
-    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:row-span-2 flex flex-col gap-4 shadow-lg">
-      <h4 className="text-lg font-semibold text-white tracking-wide">Key Notifications</h4>
-      <div className="flex flex-col gap-3 overflow-y-auto">
-        <div className="flex items-center gap-3 p-2.5 bg-white/5 rounded-lg text-xs border border-white/5">
-          <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0 animate-pulse"></span>
-          <div>
-            <p className="font-semibold text-white">Notifications</p>
-            <p className="text-gray-400 text-[11px] mt-0.5">තොරතුරු ලබාගැනීම...</p>
-          </div>
+    <div className="h-full p-6 bg-white/50 backdrop-blur-lg rounded-2xl border border-white/60 shadow-md text-slate-800">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="p-2.5 bg-slate-800/10 rounded-xl text-xl">🔔</div>
+        <div>
+          <h4 className="font-bold text-lg text-slate-900">Key Notifications</h4>
+          <p className="text-slate-600 text-xs">ප්‍රධාන දැනුම්දීම් / முக்கிய அறிவிப்புகள்</p>
         </div>
-        <div className="flex items-center gap-3 p-2.5 bg-white/5 rounded-lg text-xs border border-white/5">
-          <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
-          <div>
-            <p className="font-semibold text-white">Notifications</p>
-            <p className="text-gray-400 text-[11px] mt-0.5">அதிசிய பார்கள்...</p>
-          </div>
+      </div>
+
+      <div className="flex flex-col gap-3 mt-4">
+        <div className="p-3 bg-slate-800/5 rounded-xl border border-slate-200/60 text-sm">
+          <b className="text-slate-900">System Update:</b> National E-ID core services are running optimally.
         </div>
-        <div className="flex items-center gap-3 p-2.5 bg-white/5 rounded-lg text-xs border border-white/5">
-          <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
-          <div>
-            <p className="font-semibold text-white">Notifications</p>
-            <p className="text-gray-400 text-[11px] mt-0.5">Recent unread to...</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 p-2.5 bg-white/5 rounded-lg text-xs border border-white/5">
-          <span className="w-2 h-2 rounded-full bg-purple-500 shrink-0"></span>
-          <div>
-            <p className="font-semibold text-white">Notifications are...</p>
-            <p className="text-gray-400 text-[11px] mt-0.5">2 hours ago</p>
-          </div>
+        <div className="p-3 bg-slate-800/5 rounded-xl border border-slate-200/60 text-sm">
+          <b className="text-slate-900">Verification:</b> Documents pending review.
         </div>
       </div>
     </div>
