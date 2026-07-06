@@ -9,6 +9,8 @@ import Security from "../../components/home/Security";
 import Benefits from "../../components/home/Benefits";
 import FAQ from "../../components/home/FAQ";
 
+
+
 function Home() {
   return (
     <>
