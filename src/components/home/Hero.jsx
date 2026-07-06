@@ -1,61 +1,67 @@
 import "../../styles/Hero.css";
+import IDCard from "./IDCard";
+import { FaArrowRight, FaShieldAlt } from "react-icons/fa";
 
 function Hero() {
   return (
     <section className="hero">
 
-      <div className="hero-left">
+      <div className="hero-content">
 
-        <span className="badge">
-          🇱🇰 Sri Lanka Digital Identity
+        <span className="hero-badge">
+          <FaShieldAlt />
+          Secure Government Digital Identity
         </span>
 
         <h1>
-          National <span>E-ID</span>
-          <br />
-          Digital Identity System
+          Sri Lanka's
+          <span> National e-ID </span>
+          Platform
         </h1>
 
         <p>
-          A secure and trusted digital identity platform that allows
-          Sri Lankan citizens to verify their identity, access
-          government services, and protect personal information.
+          A secure digital identity platform that enables Sri Lankan citizens
+          to access government services quickly, safely, and conveniently from
+          anywhere.
         </p>
 
         <div className="hero-buttons">
+
           <button className="primary-btn">
             Get Started
+            <FaArrowRight />
           </button>
 
           <button className="secondary-btn">
             Learn More
           </button>
+
         </div>
 
-      </div>
+        <div className="hero-stats">
 
-      <div className="hero-right">
-
-        <div className="id-card">
-
-          <div className="card-top">
-            <h3>National e-ID</h3>
-            <span>Verified</span>
+          <div>
+            <h2>5M+</h2>
+            <span>Citizens</span>
           </div>
 
-          <div className="profile-circle"></div>
+          <div>
+            <h2>150+</h2>
+            <span>Government Services</span>
+          </div>
 
-          <h2>Citizen Name</h2>
-
-          <p>ID : 200XXXXXXXXX</p>
-
-          <div className="status">
-            Active Citizen
+          <div>
+            <h2>99.9%</h2>
+            <span>Security</span>
           </div>
 
         </div>
 
       </div>
+
+      <div className="hero-image">
+    <IDCard />
+</div>
 
     </section>
   );
