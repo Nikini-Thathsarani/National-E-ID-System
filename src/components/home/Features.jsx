@@ -50,7 +50,7 @@ const features = [
 
 function Features() {
   return (
-    <section className="features">
+    <section id="features" className="features">
 
       <div className="section-header">
 

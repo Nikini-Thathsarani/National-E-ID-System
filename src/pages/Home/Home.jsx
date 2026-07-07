@@ -8,6 +8,8 @@ import HowItWorks from "../../components/home/HowItWorks";
 import Security from "../../components/home/Security";
 import Benefits from "../../components/home/Benefits";
 import FAQ from "../../components/home/FAQ";
+import About from "../../components/home/About";
+import Footer from "../../components/layout/Footer";
 
 function Home() {
   return (
@@ -17,10 +19,12 @@ function Home() {
       <Info />
       <Statistics />
       <Features />
+      <About />
       <HowItWorks />
       <Security />
       <Benefits />
       <FAQ />
+       <Footer /> 
     </>
   );
 }
