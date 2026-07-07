@@ -11,7 +11,7 @@ import Benefits from "../../components/home/Benefits";
 function Home() {
   return (
     <>
-      <Navbar />
+    
       <Hero />
       <Info />
       <Statistics />
