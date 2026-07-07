@@ -1,0 +1,77 @@
+/* src/styles/DocumentUpload.css */
+
+.upload-widget-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 28px;
+  padding: 30px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 40px rgba(31, 38, 135, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-widget-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 45px rgba(31, 38, 135, 0.08);
+}
+
+.upload-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.upload-widget-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.upload-badge {
+  font-size: 10px;
+  font-weight: 800;
+  background-color: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.drop-zone-area {
+  border: 2px dashed rgba(37, 99, 235, 0.25);
+  border-radius: 18px;
+  padding: 35px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.drop-zone-area:hover {
+  border-color: #2563eb;
+  background-color: rgba(37, 99, 235, 0.02);
+}
+
+.upload-icon-container {
+  font-size: 32px;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.upload-main-text {
+  margin: 0 0 6px 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.upload-sub-text {
+  margin: 0;
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 500;
+}

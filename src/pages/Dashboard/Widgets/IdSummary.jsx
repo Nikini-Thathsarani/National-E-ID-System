@@ -1,29 +1,57 @@
+// src/pages/Dashboard/Widgets/IdSummary.jsx
 import React from 'react';
+import '../../../styles/IdSummary.css';
 
 const IdSummary = () => {
   return (
-    <div className="h-full p-6 bg-white/50 backdrop-blur-lg rounded-2xl border border-white/60 shadow-md text-slate-800 flex flex-col justify-between">
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2.5 bg-slate-800/10 rounded-xl text-xl">🪪</div>
-          <div>
-            <h4 className="font-bold text-lg text-slate-900">Digital ID Summary</h4>
-            <p className="text-slate-600 text-xs">ඩිජිටල් හැඳුනුම්පත් සාරාංශය / டிஜிட்டல் ஐடி சுருக்கம்</p>
-          </div>
+    <div className="id-summary-card">
+      
+      {/* Card Header */}
+      <div className="id-summary-header">
+        <h4 className="id-summary-title">
+          E-ID Summary <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '500' }}>/ සාරාංශය / சுருக்கம்</span>
+        </h4>
+        <div className="id-status-badge">
+          <span className="id-status-dot"></span>
+          ACTIVE / සක්‍රීයයි / செயலில் ඇත
         </div>
-        <p className="text-slate-700 text-sm mt-2">Digital ID summary for complete tyrua</p>
       </div>
 
-      <div className="mt-4 pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
-        <div>
-          <span className="text-slate-500 text-[11px] block uppercase tracking-wider font-semibold">Passport ID</span>
-          <span className="font-bold text-slate-900">N/A</span>
+      {/* Profile/Identity Brief Details */}
+      <div className="id-details-container">
+        
+        {/* Row 1: Name */}
+        <div className="id-info-row">
+          <div>
+            <span className="id-info-label" style={{ display: 'block' }}>Full Name</span>
+            <span style={{ fontSize: '10px', color: '#94a3b8', fontWeight: '600' }}>සම්පූර්ණ නම / සම්පූර්ණ නම</span>
+          </div>
+          <span className="id-info-value">N. K. Kulasuriya</span>
         </div>
-        <div>
-          <span className="text-slate-500 text-[11px] block uppercase tracking-wider font-semibold">Version</span>
-          <span className="font-bold text-blue-600 bg-blue-100 px-2 py-0.5 rounded text-xs inline-block mt-0.5 border border-blue-200">PASSPORT</span>
+        
+        {/* Row 2: NIC */}
+        <div className="id-info-row">
+          <div>
+            <span className="id-info-label" style={{ display: 'block' }}>NIC Number</span>
+            <span style={{ fontSize: '10px', color: '#94a3b8', fontWeight: '600' }}>ජාතික හැඳුනුම්පත් අංකය / அடையாள அட்டை எண்</span>
+          </div>
+          <span className="id-info-value id-nic-highlight">200214503920</span>
         </div>
+        
+        {/* Row 3: Status */}
+        <div className="id-info-row">
+          <div>
+            <span className="id-info-label" style={{ display: 'block' }}>Document Status</span>
+            <span style={{ fontSize: '10px', color: '#94a3b8', fontWeight: '600' }}>ලේඛන තත්ත්වය / ஆவண நிலை</span>
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <span className="id-info-value" style={{ color: '#2563eb', display: 'block' }}>3 Verified</span>
+            <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '600' }}>3ක් සත්‍යාපිතයි / 3 சரிபார்க்கப்பட்டது</span>
+          </div>
+        </div>
+
       </div>
+
     </div>
   );
 };

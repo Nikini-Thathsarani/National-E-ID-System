@@ -1,0 +1,223 @@
+/* src/styles/DigitalID.css */
+
+.digital-id-page-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px;
+  background-color: #f1f5f9;
+  box-sizing: border-box;
+}
+
+.digital-id-main-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.digital-id-sub-title-trilingual {
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 600;
+  margin: 0 0 50px 0;
+  line-height: 1.5;
+}
+
+/* THE PREMIUM VIRTUAL ID CARD WRAPPER */
+.virtual-id-card-wrapper {
+  background: #ffffff;
+  border-radius: 28px;
+  max-width: 620px;
+  margin: 0 auto;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Card Top Blue Accent Strip */
+.virtual-id-card-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: #2563eb;
+}
+
+.id-card-top-identity {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 35px 40px 15px 40px;
+}
+
+.id-header-left h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.5px;
+}
+
+.id-header-left span {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.id-header-right-lk {
+  font-size: 17px;
+  font-weight: 800;
+  color: #475569;
+}
+
+/* Card Body Content Layout */
+.id-card-body-core {
+  display: flex;
+  gap: 35px;
+  padding: 10px 40px 30px 40px;
+}
+
+/* Left Column - Real Photo Container */
+.id-photo-frame-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.id-avatar-container-box {
+  width: 125px;
+  height: 150px;
+  background-color: #f8fafc;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.real-id-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Active Status Pill */
+.active-status-pill {
+  background-color: #e6f4ea;
+  color: #137333;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Right Column - User Data Content */
+.id-bio-details-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bio-field-box span {
+  font-size: 9px;
+  color: #94a3b8;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
+}
+
+.bio-field-box p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.bio-double-row-flex {
+  display: flex;
+  gap: 30px;
+}
+
+/* Biometric Fingerprint Box Panel */
+.biometric-verified-panel {
+  background-color: #eff6ff;
+  border-radius: 16px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid rgba(37, 99, 235, 0.05);
+  margin-top: 5px;
+}
+
+.bio-fingerprint-svg-icon {
+  width: 26px;
+  height: 26px;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bio-panel-text span {
+  font-size: 9px;
+  color: #2563eb;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1px;
+}
+
+.bio-panel-text p {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+/* Footer Meta Elements */
+.id-card-footer-meta {
+  background-color: #f8fafc;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f1f5f9;
+}
+
+.footer-serial-code {
+  font-family: monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.footer-secure-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.secure-tag-dot {
+  width: 5px;
+  height: 5px;
+  background-color: #10b981;
+  border-radius: 50%;
+}

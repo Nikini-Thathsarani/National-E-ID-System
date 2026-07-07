@@ -1,0 +1,92 @@
+/* src/styles/IdSummary.css */
+
+.id-summary-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 28px;
+  padding: 30px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 40px rgba(31, 38, 135, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.id-summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 45px rgba(31, 38, 135, 0.08);
+}
+
+.id-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.id-summary-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.id-status-badge {
+  font-size: 10px;
+  font-weight: 800;
+  background-color: rgba(16, 185, 129, 0.08);
+  color: #10b981;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.id-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.id-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.id-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.id-info-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.id-info-label {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.id-info-value {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.id-nic-highlight {
+  color: #2563eb;
+  font-family: monospace;
+  font-size: 14.5px;
+  letter-spacing: 0.5px;
+}
