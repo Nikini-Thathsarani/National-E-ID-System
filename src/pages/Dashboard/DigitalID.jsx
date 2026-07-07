@@ -31,12 +31,12 @@ const DigitalID = () => {
           <div className="id-photo-frame-stack">
             <div className="id-avatar-container-box">
               <img 
-                src="/profile.jpg"  // 💡 public ෆෝල්ඩරයේ ඇති පින්තූරය කෙලින්ම ලබාගනී (කිසිම Error එකක් එන්නේ නැත)
+                src="/profile.jpg"  // public ෆෝල්ඩරයේ ඇති ප්‍රධාන පින්තූරය
                 alt="Nurani Kaushalya Profile" 
                 className="real-id-profile-image" 
                 onError={(e) => {
-                  // පින්තූරය නැතිනම් placeholder එකක් පෙන්වයි
-                  e.target.src = "https://via.placeholder.com/125x150?text=Profile";
+                  // පින්තූරය නැතිනම් ඔයා දීපු නිල් පාට Default Avatar Icon එක පෙන්වයි
+                  e.target.src = "/default-avatar.png";
                 }}
               />
             </div>
