@@ -4,7 +4,7 @@ import { FaArrowRight, FaShieldAlt } from "react-icons/fa";
 
 function Hero() {
   return (
-    <section className="hero">
+   <section id="home" className="hero">
 
       <div className="hero-content">
 

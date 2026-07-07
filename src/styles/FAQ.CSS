@@ -7,6 +7,26 @@
   max-width: 900px;
   margin: auto;
 }
+/* ================= FAQ TITLE ================= */
+
+.faq-title{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.faq-title h2{
+    font-size:42px;
+    color:#0f172a;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.faq-title p{
+    color:#64748b;
+    font-size:18px;
+    line-height:1.8;
+}
 
 .faq-item {
   background: white;
