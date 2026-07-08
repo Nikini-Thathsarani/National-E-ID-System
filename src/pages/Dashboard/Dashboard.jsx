@@ -2,7 +2,7 @@
 import React from 'react';
 import '../../styles/Dashboard.css';
 
-// 👈 ඔයාගේ නිවැරදි ලෝගෝ පාත් එක මෙතනින් Import කරගත්තා
+
 import logoImg from '../../assets/logos/logo.jpeg'; 
 
 const Dashboard = () => {
@@ -10,7 +10,7 @@ const Dashboard = () => {
     <div className="dashboard-main-container">
       <div className="dashboard-base-layout">
         
-        {/* ==================== LEFT COLUMN ==================== */}
+       
         <div className="dashboard-left-col">
           
           {/* Big Emblem Blue Card with Custom Logo Image */}
@@ -18,7 +18,7 @@ const Dashboard = () => {
             <div className="emblem-wrapper-custom">
               <img src={logoImg} alt="National e-ID System Logo" className="custom-emblem-img" />
             </div>
-            {/* ටෙක්ස්ට් එක ඉමේජ් එකේම තියෙන නිසා මෙතන වඩාත් Clean කරලා තියෙන්නේ */}
+           
           </div>
 
           {/* Welcome Card */}
