@@ -5,21 +5,11 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background:#f5f8ff;
 }
 
-.hero{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:80px 100px;
-    min-height:90vh;
-}
 
-.hero-left{
-    width:50%;
-}
 
 .badge{
     background:#dbeafe;
@@ -29,11 +19,7 @@ body{
     font-size:14px;
 }
 
-.hero h1{
-    margin-top:25px;
-    font-size:60px;
-    line-height:75px;
-}
+
 
 .hero h1 span{
     color:#2563eb;

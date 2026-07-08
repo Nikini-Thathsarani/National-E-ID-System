@@ -5,7 +5,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'; // 👈 signOut එ
 import { auth } from '../../firebaseConfig';
 import '../../styles/Dashboard.css';
 
-// ඔයාගේ නිවැරදි ලෝගෝ පාත් එක මෙතනින් Import කරගත්තා
+
 import logoImg from '../../assets/logos/logo.jpeg'; 
 
 const Dashboard = () => {
@@ -46,7 +46,7 @@ const Dashboard = () => {
     <div className="dashboard-main-container">
       <div className="dashboard-base-layout">
         
-        {/* ==================== LEFT COLUMN (SIDEBAR + WELCOME) ==================== */}
+
         <div className="dashboard-left-col">
           
           {/* Big Emblem Blue Card with Custom Logo Image */}
@@ -54,6 +54,7 @@ const Dashboard = () => {
             <div className="emblem-wrapper-custom">
               <img src={logoImg} alt="National e-ID System Logo" className="custom-emblem-img" />
             </div>
+
           </div>
 
           {/* Welcome Card (රතු බටන් එක මෙතනින් සම්පූර්ණයෙන්ම ඉවත් කර පිරිසිදු කළා) */}

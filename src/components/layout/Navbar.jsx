@@ -1,7 +1,7 @@
 import "../../styles/Navbar.css";
 import { FaGlobe } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function Navbar() {

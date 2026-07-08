@@ -87,10 +87,7 @@ function About() {
 
         </div>
 
-        <button className="about-btn">
-          Learn More
-          <FaArrowRight />
-        </button>
+      
 
       </div>
 
