@@ -11,6 +11,8 @@ import FAQ from "../../components/home/FAQ";
 import About from "../../components/home/About";
 import Footer from "../../components/layout/Footer";
 
+
+
 function Home() {
   return (
     <>
