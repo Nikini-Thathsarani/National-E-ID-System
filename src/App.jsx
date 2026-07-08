@@ -17,7 +17,7 @@ import AdminProfile from "./pages/Admin/Profile";
 
 import MainLayout from "./components/layout/MainLayout";
 import NavbarLayout from "./components/layout/NavbarLayout";
-import RequireAdmin from "./components/auth/RequireAdmin"; // 🟢 මෙන්න මේ ලයින් එක නිවැරදිව එකතු කළා!
+import RequireAdmin from "./components/auth/RequireAdmin";
 
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Dashboard/Profile";
@@ -29,9 +29,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* 🌐 Public Pages */}
+        {/* Public Pages */}
         <Route element={<NavbarLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/otp-verify" element={<OTPVerify />} />
@@ -39,7 +40,7 @@ function App() {
           <Route path="/admin-login" element={<AdminLogin />} />
         </Route>
 
-        {/* 🪪 Citizen Dashboard */}
+        {/* Citizen Dashboard */}
         <Route path="/dashboard" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
@@ -48,7 +49,7 @@ function App() {
           <Route path="qr-code" element={<QRCodePage />} />
         </Route>
 
-        {/* 👑 Admin Pages */}
+        {/* Admin Pages */}
         <Route
           path="/admin"
           element={
@@ -57,6 +58,7 @@ function App() {
             </RequireAdmin>
           }
         />
+
         <Route
           path="/admin/citizens"
           element={
@@ -65,6 +67,7 @@ function App() {
             </RequireAdmin>
           }
         />
+
         <Route
           path="/admin/digital-ids"
           element={
@@ -73,6 +76,7 @@ function App() {
             </RequireAdmin>
           }
         />
+
         <Route
           path="/admin/verification"
           element={
@@ -81,6 +85,7 @@ function App() {
             </RequireAdmin>
           }
         />
+
         <Route
           path="/admin/reports"
           element={
@@ -89,6 +94,7 @@ function App() {
             </RequireAdmin>
           }
         />
+
         <Route
           path="/admin/settings"
           element={
@@ -97,6 +103,7 @@ function App() {
             </RequireAdmin>
           }
         />
+
         <Route
           path="/admin/profile"
           element={
