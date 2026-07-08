@@ -27,18 +27,18 @@ import QRCodePage from "./pages/Dashboard/QRCodePage";
 
 function App() {
   return (
-<Router>
-  <Routes>
-    {/* Public Pages */}
-    <Route element={<NavbarLayout />}>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/otp-verify" element={<OTPVerify />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/admin-login" element={<AdminLogin />} />
-    </Route>
+    <Router>
+      <Routes>
+        {/* Public Pages */}
+        <Route element={<NavbarLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/otp-verify" element={<OTPVerify />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+        </Route>
         {/* Citizen Dashboard */}
         <Route path="/dashboard" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
