@@ -1,0 +1,19 @@
+{
+  "navbar": {
+    "home": "Home",
+    "features": "Features",
+    "security": "Security",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register"
+  },
+
+  "hero": {
+    "badge": "Secure Government Digital Identity",
+    "title1": "Sri Lanka's",
+    "title2": "National e-ID",
+    "title3": "Platform",
+    "description": "A secure digital identity platform that enables Sri Lankan citizens to access government services quickly, safely, and conveniently from anywhere."
+  }
+}
