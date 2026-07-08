@@ -1,14 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
-
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import OTPVerify from "./pages/Auth/OTPVerify";
 import ForgotPassword from "./pages/Auth/ForgotPassword";
-
-import Navbar from "./components/layout/Navbar";
-import RequireAdmin from "./components/auth/RequireAdmin";
 import AdminLogin from "./pages/Admin/AdminLogin";
 
 import AdminDashboard from "./pages/Admin/Dashboard";
@@ -20,6 +16,8 @@ import Settings from "./pages/Admin/Settings";
 import AdminProfile from "./pages/Admin/Profile";
 
 import MainLayout from "./components/layout/MainLayout";
+import NavbarLayout from "./components/layout/NavbarLayout";
+import RequireAdmin from "./components/auth/RequireAdmin"; // 🟢 මෙන්න මේ ලයින් එක නිවැරදිව එකතු කළා!
 
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Profile from "./pages/Dashboard/Profile";
@@ -30,18 +28,18 @@ import QRCodePage from "./pages/Dashboard/QRCodePage";
 function App() {
   return (
     <Router>
-      <Navbar />
-
       <Routes>
-        {/* Public Pages */}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/otp-verify" element={<OTPVerify />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/admin-login" element={<AdminLogin />} />
+        {/* 🌐 Public Pages */}
+        <Route element={<NavbarLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/otp-verify" element={<OTPVerify />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+        </Route>
 
-        {/* Citizen Dashboard */}
+        {/* 🪪 Citizen Dashboard */}
         <Route path="/dashboard" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="profile" element={<Profile />} />
@@ -50,7 +48,7 @@ function App() {
           <Route path="qr-code" element={<QRCodePage />} />
         </Route>
 
-        {/* Admin Pages */}
+        {/* 👑 Admin Pages */}
         <Route
           path="/admin"
           element={
@@ -59,7 +57,6 @@ function App() {
             </RequireAdmin>
           }
         />
-
         <Route
           path="/admin/citizens"
           element={
@@ -68,7 +65,6 @@ function App() {
             </RequireAdmin>
           }
         />
-
         <Route
           path="/admin/digital-ids"
           element={
@@ -77,7 +73,6 @@ function App() {
             </RequireAdmin>
           }
         />
-
         <Route
           path="/admin/verification"
           element={
@@ -86,7 +81,6 @@ function App() {
             </RequireAdmin>
           }
         />
-
         <Route
           path="/admin/reports"
           element={
@@ -95,7 +89,6 @@ function App() {
             </RequireAdmin>
           }
         />
-
         <Route
           path="/admin/settings"
           element={
@@ -104,7 +97,6 @@ function App() {
             </RequireAdmin>
           }
         />
-
         <Route
           path="/admin/profile"
           element={
@@ -113,7 +105,7 @@ function App() {
             </RequireAdmin>
           }
         />
-      </Routes> {/* 🟢 නිවැරදිව එක පාරක් පමණක් වසා ඇත */}
+      </Routes>
     </Router>
   );
 }

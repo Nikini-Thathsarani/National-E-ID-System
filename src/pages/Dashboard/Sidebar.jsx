@@ -1,28 +1,28 @@
-import { NavLink, useNavigate } from 'react-router-dom'; // 👈 useNavigate එකතු කළා
-import { signOut } from 'firebase/auth'; // 👈 Firebase signOut එකතු කළා
-import { auth } from '../../firebaseConfig'; // 👈 ඔයාගේ firebaseConfig path එක (Sidebar එක තියෙන තැන අනුව අවශ්‍ය නම් path එක වෙනස් කරගන්න)
-import { LayoutDashboard, User, CreditCard, FileText, QrCode, LogOut } from 'lucide-react'; // 👈 LogOut අයිකන් එක ගත්තා
+import { NavLink, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+import { LayoutDashboard, User, CreditCard, FileText, QrCode, LogOut } from 'lucide-react';
 
 const Sidebar = () => {
   const navigate = useNavigate();
 
   const menuItems = [
-    { name: 'Dashboard', si: 'උපකරණ පුවරුව', ta: 'டாஷ்போர்டு', path: '/', icon: <LayoutDashboard size={20}/> },
-    { name: 'Profile', si: 'පැතිකඩ', ta: 'சுயவிவரம்', path: '/profile', icon: <User size={20}/> },
-    { name: 'Digital ID', si: 'ඩිජිටල් හැඳුනුම්පත', ta: 'டிஜிட்டல் ஐடி', path: '/digital-id', icon: <CreditCard size={20}/> },
-    { name: 'Documents', si: 'ලේඛන', ta: 'ஆவணங்கள்', path: '/documents', icon: <FileText size={20}/> },
-    { name: 'QR Code', si: 'QR කේතය', ta: 'QR குறியீடு', path: '/qr-code', icon: <QrCode size={20}/> },
+    { name: 'Dashboard', si: 'උපකරණ පුවරුව', ta: 'டாஷ்போர்டு', path: '/dashboard', icon: <LayoutDashboard size={20}/> },
+    { name: 'Profile', si: 'පැතිකඩ', ta: 'சுயவிவரம்', path: '/dashboard/profile', icon: <User size={20}/> },
+    { name: 'Digital ID', si: 'ඩිජිටල් හැඳුනුම්පත', ta: 'டிஜிட்டல் ஐடி', path: '/dashboard/digital-id', icon: <CreditCard size={20}/> },
+    { name: 'Documents', si: 'ලේඛන', ta: 'ஆவணங்கள்', path: '/dashboard/documents', icon: <FileText size={20}/> },
+    { name: 'QR Code', si: 'QR කේතය', ta: 'QR குறியீடு', path: '/dashboard/qr-code', icon: <QrCode size={20}/> },
   ];
 
-  // 🔐 ආරක්ෂිතව Logout වී Home පේජ් එකට හරවා යැවීමේ Function එක
+  // 🔐 ආරක්ෂිතව Logout වීමේ Function එක (මෙහි Bracket එක නිවැරදි කරන ලදී)
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      navigate('/'); // Logout වුණාට පස්සේ කෙලින්ම Home එකට යනවා
+      navigate('/');
     } catch (error) {
       console.error("Logout Error:", error.message);
     }
-  };
+  }; // 🟢 මෙතන තිබුණු වැරදි ); එක වෙනුවට නිවැරදිව }; දමා ඇත
 
   return (
     <aside className="w-72 bg-[#090e1a] p-6 flex flex-col border-r border-gray-800 min-h-screen">
@@ -40,6 +40,7 @@ const Sidebar = () => {
             <NavLink
               key={item.path}
               to={item.path}
+              end={item.path === '/dashboard'}
               className={({ isActive }) =>
                 `flex items-center gap-4 p-4 rounded-xl transition-all mb-2 cursor-pointer ${
                   isActive 
@@ -57,7 +58,7 @@ const Sidebar = () => {
           ))}
         </div>
 
-        {/* 🚪 🟢 Sidebar එකේ යටින්ම ලස්සනට එකතු කළ Sign Out Button එක */}
+        {/* 🚪 Sign Out Button */}
         <button
           onClick={handleLogout}
           className="flex items-center gap-4 p-4 rounded-xl transition-all cursor-pointer text-red-400 hover:bg-red-500/10 hover:text-red-300 mt-auto border border-dashed border-red-500/20"
