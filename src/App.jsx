@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 
@@ -29,93 +29,93 @@ import QRCodePage from "./pages/Dashboard/QRCodePage";
 
 function App() {
   return (
-    <Router>
-<Navbar />
+    <>
+      <Navbar />
 
-<Routes>
-  {/* Public Pages */}
-  <Route path="/" element={<Home />} />
-  <Route path="/login" element={<Login />} />
-  <Route path="/register" element={<Register />} />
-  <Route path="/otp-verify" element={<OTPVerify />} />
-  <Route path="/forgot-password" element={<ForgotPassword />} />
-  <Route path="/admin-login" element={<AdminLogin />} />
+      <Routes>
+        {/* Public Pages */}
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/otp-verify" element={<OTPVerify />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
 
-  {/* Citizen Dashboard */}
-  <Route path="/dashboard" element={<MainLayout />}>
-    <Route index element={<Dashboard />} />
-    <Route path="profile" element={<Profile />} />
-    <Route path="digital-id" element={<DigitalID />} />
-    <Route path="documents" element={<Documents />} />
-    <Route path="qr-code" element={<QRCodePage />} />
-  </Route>
+        {/* Citizen Dashboard */}
+        <Route path="/dashboard" element={<MainLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="digital-id" element={<DigitalID />} />
+          <Route path="documents" element={<Documents />} />
+          <Route path="qr-code" element={<QRCodePage />} />
+        </Route>
 
-  {/* Admin Pages */}
-  <Route
-    path="/admin"
-    element={
-      <RequireAdmin>
-        <AdminDashboard />
-      </RequireAdmin>
-    }
-  />
+        {/* Admin Pages */}
+        <Route
+          path="/admin"
+          element={
+            <RequireAdmin>
+              <AdminDashboard />
+            </RequireAdmin>
+          }
+        />
 
-  <Route
-    path="/admin/citizens"
-    element={
-      <RequireAdmin>
-        <Citizens />
-      </RequireAdmin>
-    }
-  />
+        <Route
+          path="/admin/citizens"
+          element={
+            <RequireAdmin>
+              <Citizens />
+            </RequireAdmin>
+          }
+        />
 
-  <Route
-    path="/admin/digital-ids"
-    element={
-      <RequireAdmin>
-        <DigitalIDs />
-      </RequireAdmin>
-    }
-  />
+        <Route
+          path="/admin/digital-ids"
+          element={
+            <RequireAdmin>
+              <DigitalIDs />
+            </RequireAdmin>
+          }
+        />
 
-  <Route
-    path="/admin/verification"
-    element={
-      <RequireAdmin>
-        <Verification />
-      </RequireAdmin>
-    }
-  />
+        <Route
+          path="/admin/verification"
+          element={
+            <RequireAdmin>
+              <Verification />
+            </RequireAdmin>
+          }
+        />
 
-  <Route
-    path="/admin/reports"
-    element={
-      <RequireAdmin>
-        <Reports />
-      </RequireAdmin>
-    }
-  />
+        <Route
+          path="/admin/reports"
+          element={
+            <RequireAdmin>
+              <Reports />
+            </RequireAdmin>
+          }
+        />
 
-  <Route
-    path="/admin/settings"
-    element={
-      <RequireAdmin>
-        <Settings />
-      </RequireAdmin>
-    }
-  />
+        <Route
+          path="/admin/settings"
+          element={
+            <RequireAdmin>
+              <Settings />
+            </RequireAdmin>
+          }
+        />
 
-  <Route
-    path="/admin/profile"
-    element={
-      <RequireAdmin>
-        <AdminProfile />
-      </RequireAdmin>
-    }
-  />
-</Routes>
+        <Route
+          path="/admin/profile"
+          element={
+            <RequireAdmin>
+              <AdminProfile />
+            </RequireAdmin>
+          }
+        />
       </Routes>
-    </Router>
+    </>
   );
 }
 
