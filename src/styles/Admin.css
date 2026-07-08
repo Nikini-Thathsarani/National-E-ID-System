@@ -1,0 +1,201 @@
+/* Admin.css — National E-ID admin/staff portal
+   Deliberately distinct from the citizen portal (dark, restrained) so staff
+   always have a clear visual signal they're in a privileged area — while
+   keeping the same brand blue for continuity. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.admin-wrapper {
+  --accent: #3B82F6;
+  --accent-soft: #2563EB;
+  --bg: #0B1220;
+  --card: #121A2E;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #E5E9F5;
+  --text-soft: #8A93AC;
+  --error: #F87171;
+  --error-bg: rgba(248, 113, 113, 0.1);
+  --radius-lg: 18px;
+  --radius-md: 10px;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(59, 130, 246, 0.12), transparent 45%),
+    var(--bg);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.admin-wrapper *,
+.admin-wrapper *::before,
+.admin-wrapper *::after {
+  box-sizing: border-box;
+}
+
+.admin-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.6);
+}
+
+.admin-card--dashboard {
+  max-width: 480px;
+  text-align: center;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--text-soft);
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+}
+
+.admin-brand em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.admin-brand-mark {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.admin-title {
+  font-weight: 800;
+  font-size: 24px;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.admin-subtitle {
+  font-size: 13.5px;
+  color: var(--text-soft);
+  margin: 0 0 26px;
+  line-height: 1.5;
+}
+
+.admin-error {
+  background: var(--error-bg);
+  color: var(--error);
+  border-left: 3px solid var(--error);
+  padding: 10px 13px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-form label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin: 16px 0 6px;
+}
+
+.admin-form label:first-of-type {
+  margin-top: 0;
+}
+
+.admin-form input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background: #0E1626;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-form input::placeholder {
+  color: #4B5468;
+}
+
+.admin-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+
+.admin-btn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 12px;
+  background: var(--accent-soft);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14.5px;
+  font-weight: 700;
+  font-family: 'Inter', system-ui, sans-serif;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.admin-btn:hover:not(:disabled) {
+  background: #1D4ED8;
+}
+
+.admin-btn:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.admin-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-btn--secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+.admin-btn--secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.admin-back-link {
+  display: block;
+  margin-top: 26px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--text-soft);
+  text-decoration: none;
+}
+
+.admin-back-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.admin-guard-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg, #0B1220);
+  color: #8A93AC;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+}

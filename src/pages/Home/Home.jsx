@@ -16,7 +16,7 @@ import Footer from "../../components/layout/Footer";
 function Home() {
   return (
     <>
-      <Navbar />
+    
       <Hero />
       <Info />
       <Statistics />

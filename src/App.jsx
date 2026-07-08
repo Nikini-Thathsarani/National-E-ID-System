@@ -1,6 +1,14 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
+import OTPVerify from "./pages/Auth/OTPVerify";
+import ForgotPassword from "./pages/Auth/ForgotPassword";
+
+import Navbar from "./components/layout/Navbar";
+import RequireAdmin from "./components/auth/RequireAdmin";
+import AdminLogin from "./pages/Admin/AdminLogin";
 
 import Dashboard from "./pages/Admin/Dashboard";
 import Citizens from "./pages/Admin/Citizens";
@@ -12,21 +20,76 @@ import Profile from "./pages/Admin/Profile";
 
 function App() {
   return (
-    <Routes>
+    <Router>
+      <Navbar />
+      <Routes>
+        {/* Public Pages */}
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/otp-verify" element={<OTPVerify />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
 
-      {/* Public Pages */}
-      <Route path="/" element={<Home />} />
-
-      {/* Admin Pages */}
-      <Route path="/admin" element={<Dashboard />} />
-      <Route path="/admin/citizens" element={<Citizens />} />
-      <Route path="/admin/digital-ids" element={<DigitalIDs />} />
-      <Route path="/admin/verification" element={<Verification />} />
-      <Route path="/admin/reports" element={<Reports />} />
-      <Route path="/admin/settings" element={<Settings />} />
-      <Route path="/admin/profile" element={<Profile />} />
-
-    </Routes>
+        {/* Admin Pages */}
+        <Route
+          path="/admin"
+          element={
+            <RequireAdmin>
+              <Dashboard />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/citizens"
+          element={
+            <RequireAdmin>
+              <Citizens />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/digital-ids"
+          element={
+            <RequireAdmin>
+              <DigitalIDs />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/verification"
+          element={
+            <RequireAdmin>
+              <Verification />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/reports"
+          element={
+            <RequireAdmin>
+              <Reports />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/settings"
+          element={
+            <RequireAdmin>
+              <Settings />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/profile"
+          element={
+            <RequireAdmin>
+              <Profile />
+            </RequireAdmin>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
