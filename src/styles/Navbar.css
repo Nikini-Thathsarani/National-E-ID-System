@@ -79,18 +79,32 @@
   flex-shrink: 0;
 }
 
-.navbar .login-btn {
-  padding: 8px 18px;
+/* ---------- Login / Register buttons ----------
+   Both share identical box model (height, line-height, font)
+   so the outlined Login button and filled Register button
+   render at exactly the same size, border or no border. */
+
+.navbar .login-btn,
+.navbar .register-btn {
+  height: 40px;
+  padding: 0 20px;
   border-radius: 8px;
-  border: 1.5px solid var(--primary);
-  background: #FFFFFF;
-  color: var(--primary);
   font-size: 14px;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: background 0.15s ease;
   white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.navbar .login-btn {
+  border: 1.5px solid var(--primary);
+  background: #FFFFFF;
+  color: var(--primary);
 }
 
 .navbar .login-btn:hover {
@@ -98,21 +112,14 @@
 }
 
 .navbar .register-btn {
-  padding: 8px 18px;
-  border-radius: 8px;
-  border: none;
+  border: 1.5px solid var(--primary);
   background: var(--primary);
   color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  cursor: pointer;
-  transition: background 0.15s ease;
-  white-space: nowrap;
 }
 
 .navbar .register-btn:hover {
   background: var(--primary-dark);
+  border-color: var(--primary-dark);
 }
 
 .navbar .login-btn:focus-visible,

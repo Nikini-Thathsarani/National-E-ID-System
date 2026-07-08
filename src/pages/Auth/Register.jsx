@@ -157,6 +157,7 @@ function Register() {
 
       await setDoc(doc(db, "users", uid), {
         ...formData,
+        role: "user", 
         createdAt: new Date(),
         emailVerified: false,
         otpCode,
