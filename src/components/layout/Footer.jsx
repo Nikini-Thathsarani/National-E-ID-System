@@ -1,67 +1,75 @@
 import "../../styles/Footer.css";
-import { FaFacebookF, FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer id="contact" className="footer">
+    <footer className="footer" id="contact">
 
       <div className="footer-container">
 
-        <div className="footer-about">
-
+        {/* Brand */}
+        <div className="footer-section">
           <h2>National e-ID</h2>
 
           <p>
-            Sri Lanka's trusted digital identity platform providing secure,
-            convenient, and reliable access to government services.
+            Sri Lanka's secure digital identity platform designed to provide
+            fast, safe and convenient access to government services.
           </p>
 
+          <div className="social-icons">
+            <a href="#"><FaFacebookF /></a>
+            <a href="#"><FaTwitter /></a>
+            <a href="#"><FaLinkedinIn /></a>
+          </div>
         </div>
 
-        <div className="footer-links">
-
+        {/* Quick Links */}
+        <div className="footer-section">
           <h3>Quick Links</h3>
 
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#security">Security</a></li>
+            <li><a href="#about">About</a></li>
           </ul>
-
         </div>
 
-        <div className="footer-contact">
+        {/* Services */}
+        <div className="footer-section">
+          <h3>Services</h3>
 
+          <ul>
+            <li>Digital Identity</li>
+            <li>Identity Verification</li>
+            <li>Government Services</li>
+            <li>Secure Authentication</li>
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div className="footer-section">
           <h3>Contact</h3>
 
-          <p>Email: support@nationaleid.lk</p>
-          <p>Phone: +94 11 234 5678</p>
-          <p>Colombo, Sri Lanka</p>
+          <p><FaEnvelope /> support@eid.gov.lk</p>
 
-        </div>
+          <p><FaPhoneAlt /> +94 11 234 5678</p>
 
-        <div className="footer-social">
-
-          <h3>Follow Us</h3>
-
-          <div className="social-icons">
-
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaLinkedinIn /></a>
-            <a href="#"><FaGithub /></a>
-            <a href="#"><FaEnvelope /></a>
-
-          </div>
+          <p><FaMapMarkerAlt /> Colombo, Sri Lanka</p>
 
         </div>
 
       </div>
 
       <div className="footer-bottom">
-
         © 2026 National e-ID System | All Rights Reserved.
-
       </div>
 
     </footer>

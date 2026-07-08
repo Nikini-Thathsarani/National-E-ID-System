@@ -1,10 +1,10 @@
 import "../../styles/Hero.css";
 import IDCard from "./IDCard";
-import { FaArrowRight, FaShieldAlt } from "react-icons/fa";
+import { FaShieldAlt } from "react-icons/fa";
 
 function Hero() {
   return (
-   <section id="home" className="hero">
+    <section id="home" className="hero">
 
       <div className="hero-content">
 
@@ -25,43 +25,27 @@ function Hero() {
           anywhere.
         </p>
 
-        <div className="hero-buttons">
+        <div className="hero-features">
 
-          <button className="primary-btn">
-            Get Started
-            <FaArrowRight />
-          </button>
+  <div className="feature-item">
+    🛡️ Secure
+  </div>
 
-          <button className="secondary-btn">
-            Learn More
-          </button>
+  <div className="feature-item">
+    🔒 Encrypted
+  </div>
 
-        </div>
+  <div className="feature-item">
+    ⚡ Fast Verification
+  </div>
 
-        <div className="hero-stats">
-
-          <div>
-            <h2>5M+</h2>
-            <span>Citizens</span>
-          </div>
-
-          <div>
-            <h2>150+</h2>
-            <span>Government Services</span>
-          </div>
-
-          <div>
-            <h2>99.9%</h2>
-            <span>Security</span>
-          </div>
-
-        </div>
+</div>
 
       </div>
 
       <div className="hero-image">
-    <IDCard />
-</div>
+        <IDCard />
+      </div>
 
     </section>
   );
