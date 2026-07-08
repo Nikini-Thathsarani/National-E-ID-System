@@ -1,64 +1,56 @@
 import "../../styles/Security.css";
-
 import {
   FaLock,
-  FaFingerprint,
   FaShieldAlt,
-  FaQrcode,
+  FaFingerprint,
+  FaServer,
 } from "react-icons/fa";
 
 function Security() {
-
-  const securityItems = [
-
+  const securityFeatures = [
     {
       icon: <FaLock />,
       title: "End-to-End Encryption",
       description:
-        "All citizen data is encrypted during transmission and storage."
+        "All personal information is encrypted to protect your privacy and identity.",
     },
-
     {
       icon: <FaShieldAlt />,
       title: "Multi-Factor Authentication",
       description:
-        "Secure login using password and additional verification methods."
+        "Secure login using passwords, OTP verification, and trusted devices.",
     },
-
     {
       icon: <FaFingerprint />,
       title: "Biometric Verification",
       description:
-        "Fingerprint or facial recognition can be used for identity verification."
+        "Fingerprint and facial recognition ensure only you can access your account.",
     },
-
     {
-      icon: <FaQrcode />,
-      title: "QR Verification",
+      icon: <FaServer />,
+      title: "Secure Government Servers",
       description:
-        "Government agencies can instantly verify a citizen's digital identity."
-    }
-
+        "Citizen information is stored in highly secure government infrastructure.",
+    },
   ];
 
   return (
-
-    <section className="security">
+    <section id="security" className="security-section">
 
       <div className="security-title">
+        <span>SECURITY</span>
 
-        <h2>Security & Privacy</h2>
+        <h2>Your Identity is Protected</h2>
 
         <p>
-          The National e-ID System is designed with advanced security
-          technologies to protect every citizen's digital identity.
+          Advanced security technologies keep your National e-ID safe,
+          private, and trusted.
         </p>
-
       </div>
 
       <div className="security-grid">
 
-        {securityItems.map((item, index) => (
+        {securityFeatures.map((item, index) => (
 
           <div className="security-card" key={index}>
 
@@ -77,7 +69,6 @@ function Security() {
       </div>
 
     </section>
-
   );
 }
 
