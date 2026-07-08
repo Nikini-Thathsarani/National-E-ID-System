@@ -1,0 +1,103 @@
+/* src/styles/Notifications.css */
+
+.notifications-widget-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 28px;
+  padding: 30px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 40px rgba(31, 38, 135, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notifications-widget-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 45px rgba(31, 38, 135, 0.08);
+}
+
+.notifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.notifications-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.notifications-count-badge {
+  font-size: 10px;
+  font-weight: 800;
+  background-color: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.notification-item {
+  display: flex;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: background-color 0.2s ease;
+}
+
+.notification-item:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.notification-icon-wrapper {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+}
+
+/* Icon Variations based on status */
+.icon-success {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.icon-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.notification-text {
+  margin: 0 0 4px 0;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.notification-time {
+  margin: 0;
+  font-size: 10.5px;
+  color: #94a3b8;
+  font-weight: 600;
+}
