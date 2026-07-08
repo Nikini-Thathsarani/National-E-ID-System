@@ -1,16 +1,52 @@
 // src/pages/Dashboard/Dashboard.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { onAuthStateChanged, signOut } from 'firebase/auth'; // 👈 signOut එකතු කළා
+import { auth } from '../../firebaseConfig';
 import '../../styles/Dashboard.css';
 
-// 👈 ඔයාගේ නිවැරදි ලෝගෝ පාත් එක මෙතනින් Import කරගත්තා
+// ඔයාගේ නිවැරදි ලෝගෝ පාත් එක මෙතනින් Import කරගත්තා
 import logoImg from '../../assets/logos/logo.jpeg'; 
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  // 🛡️ Security Check
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate('/login');
+      } else {
+        setLoading(false);
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
+
+  // 🔐 Firebase Logout Function
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate('/'); // Logout වුණාට පස්සේ Home එකට යනවා
+    } catch (error) {
+      console.error("Logout Error:", error.message);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#f8fafc', color: '#1e3a8a', fontFamily: 'sans-serif', fontWeight: 'bold' }}>
+        Loading Dashboard...
+      </div>
+    );
+  }
+
   return (
     <div className="dashboard-main-container">
       <div className="dashboard-base-layout">
         
-        {/* ==================== LEFT COLUMN ==================== */}
+        {/* ==================== LEFT COLUMN (SIDEBAR + WELCOME) ==================== */}
         <div className="dashboard-left-col">
           
           {/* Big Emblem Blue Card with Custom Logo Image */}
@@ -18,15 +54,14 @@ const Dashboard = () => {
             <div className="emblem-wrapper-custom">
               <img src={logoImg} alt="National e-ID System Logo" className="custom-emblem-img" />
             </div>
-            {/* ටෙක්ස්ට් එක ඉමේජ් එකේම තියෙන නිසා මෙතන වඩාත් Clean කරලා තියෙන්නේ */}
           </div>
 
-          {/* Welcome Card */}
+          {/* Welcome Card (රතු බටන් එක මෙතනින් සම්පූර්ණයෙන්ම ඉවත් කර පිරිසිදු කළා) */}
           <div className="welcome-glass-card">
             <h3>Welcome, 👋</h3>
             <div className="welcome-translations">
               <span>පිළිගනිමු,</span>
-              <span>தேசிய மின்னணு அடையாள அட்டை முறைமை</span>
+              <span>தேசிய மின்னணு அடையாள අட்டை முறைமை</span>
             </div>
           </div>
 
