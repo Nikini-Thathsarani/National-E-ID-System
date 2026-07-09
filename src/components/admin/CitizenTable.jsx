@@ -1,82 +1,351 @@
+import { useEffect, useState } from "react";
 import "../../styles/AdminDashboard.css";
+import { useNavigate } from "react-router-dom";
 
-function CitizenTable() {
+import { db } from "../../firebaseConfig";
+import {
+  collection,
+  getDocs,
+  updateDoc,
+  doc
+} from "firebase/firestore";
 
-    const citizens=[
 
-        {
-            id:"200145678912",
-            name:"Kasun Perera",
-            district:"Colombo",
-            status:"Verified"
-        },
+function CitizenTable({search}) {
+    const [citizens,setCitizens] = useState([]);
+    const [filter,setFilter] = useState("All");
+    const [loading,setLoading] = useState(true);
+    const navigate = useNavigate();
 
-        {
-            id:"200278945612",
-            name:"Nimali Silva",
-            district:"Galle",
-            status:"Pending"
-        },
 
-        {
-            id:"200356781245",
-            name:"Amal Fernando",
-            district:"Kandy",
-            status:"Verified"
+
+    const fetchCitizens = async()=>{
+
+        try{
+
+            const querySnapshot = await getDocs(collection(db,"users"));
+
+
+            const users = querySnapshot.docs
+            .map((doc)=>({
+                id:doc.id,
+                ...doc.data()
+            }))
+            .filter(user =>
+                user.role !== "admin" &&
+                user.emailVerified === true
+            );
+
+
+            setCitizens(users);
+
+
+        }catch(error){
+
+            console.log(error);
+
+        }
+        finally{
+
+            setLoading(false);
+
         }
 
-    ];
+    };
+
+
+
+    useEffect(()=>{
+
+        fetchCitizens();
+
+    },[]);
+
+
+
+
+    const changeStatus = async(id,status)=>{
+
+        await updateDoc(
+            doc(db,"users",id),
+            {
+                status:status
+            }
+        );
+
+
+        fetchCitizens();
+
+    };
+
+
+
+
+
+    const filteredCitizens = citizens.filter((citizen)=>{
+
+
+        const status = (citizen.status || "")
+        .trim()
+        .toLowerCase();
+
+
+const matchSearch =
+
+citizen.fullName
+?.toLowerCase()
+.includes(search.toLowerCase())
+
+||
+
+citizen.nic
+?.toLowerCase()
+.includes(search.toLowerCase())
+
+||
+
+citizen.email
+?.toLowerCase()
+.includes(search.toLowerCase());
+
+
+
+
+        const matchStatus =
+        filter === "All" ||
+
+        (
+            filter === "Pending" &&
+            (status === "" || status === "pending")
+        )
+
+        ||
+
+        status === filter.toLowerCase();
+
+
+
+        return matchSearch && matchStatus;
+
+
+    });
+
+
+
+
 
     return(
 
-        <div className="table-container">
+    <div className="table-container">
 
-            <h2>Citizen Management</h2>
+
+        <div className="table-header">
+
+
+            <h2>
+                Citizen Management
+            </h2>
+
+
+
+            <div className="table-controls">
+
+
+               
+
+
+
+                <select
+                value={filter}
+                onChange={(e)=>setFilter(e.target.value)}
+                >
+
+                    <option>All</option>
+                    <option>Verified</option>
+                    <option>Pending</option>
+                    <option>Rejected</option>
+
+                </select>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        {
+            loading ?
+
+            <h3 className="loading">
+                Loading citizens...
+            </h3>
+
+
+            :
+
 
             <table>
 
-                <thead>
 
-                    <tr>
+            <thead>
 
-                        <th>NIC</th>
+            <tr>
 
-                        <th>Name</th>
+                <th>NIC</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Status</th>
+                <th>Actions</th>
 
-                        <th>District</th>
+            </tr>
 
-                        <th>Status</th>
+            </thead>
 
-                    </tr>
 
-                </thead>
 
-                <tbody>
 
-                    {citizens.map((citizen,index)=>(
+            <tbody>
 
-                        <tr key={index}>
 
-                            <td>{citizen.id}</td>
+            {
+            filteredCitizens.map((citizen)=>(
 
-                            <td>{citizen.name}</td>
 
-                            <td>{citizen.district}</td>
+            <tr key={citizen.id}>
 
-                            <td>{citizen.status}</td>
 
-                        </tr>
+                <td>
+                    {citizen.nic}
+                </td>
 
-                    ))}
 
-                </tbody>
+
+                <td>
+                    {citizen.fullName}
+                </td>
+
+
+
+                <td>
+                    {citizen.email}
+                </td>
+
+
+
+                <td>
+                    {citizen.mobile}
+                </td>
+
+
+
+
+                <td>
+
+                <span 
+                className={`status ${
+                    (!citizen.status || citizen.status.trim()==="")
+                    ? "pending"
+                    : citizen.status.toLowerCase()
+                }`}
+                >
+
+                {
+                    (!citizen.status || citizen.status.trim()==="")
+                    ? "Pending"
+                    : citizen.status
+                }
+
+                </span>
+
+
+                </td>
+
+
+
+
+                <td>
+
+
+                {
+                (!citizen.status || 
+                 citizen.status.trim()==="" ||
+                 citizen.status.toLowerCase()==="pending")
+
+                ?
+
+                (
+
+                <div className="action-buttons">
+
+
+                <button
+                className="approve-btn"
+                onClick={()=>changeStatus(citizen.id,"Verified")}
+                >
+                    Approve
+                </button>
+
+
+
+                <button
+                className="reject-btn"
+                onClick={()=>changeStatus(citizen.id,"Rejected")}
+                >
+                    Reject
+                </button>
+
+
+                </div>
+
+                )
+
+
+                :
+
+                (
+
+                <span>
+                    -
+                </span>
+
+                )
+
+                }
+
+
+                </td>
+
+
+
+            </tr>
+
+
+            ))
+            }
+
+
+
+            </tbody>
+
 
             </table>
 
-        </div>
+
+        }
+
+
+
+    </div>
+
 
     )
 
 }
+
 
 export default CitizenTable;

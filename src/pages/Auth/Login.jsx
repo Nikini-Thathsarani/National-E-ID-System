@@ -4,6 +4,8 @@ import "../../styles/Login.css";
 import {signInWithEmailAndPassword,setPersistence,browserLocalPersistence,browserSessionPersistence,} from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 import { sendPasswordResetEmail } from "firebase/auth";
+import { db } from "../../firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 
 const ShieldMark = () => (
   <svg className="login-brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,19 +83,82 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    try {
-      await setPersistence(auth, rememberMe ? browserLocalPersistence : browserSessionPersistence);
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/");
-    } catch (err) {
-      setError(friendlyError(err.code));
-    } finally {
-      setLoading(false);
-    }
-  };
+  e.preventDefault();
+
+      setError("");
+      setLoading(true);
+
+      try {
+
+        // Remember me
+        await setPersistence(
+          auth,
+          rememberMe 
+          ? browserLocalPersistence 
+          : browserSessionPersistence
+        );
+
+
+        // Firebase Authentication login
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+
+        const uid = userCredential.user.uid;
+
+
+        // Get user data from Firestore
+        const userDoc = await getDoc(
+          doc(db, "users", uid)
+        );
+
+
+        if(userDoc.exists()){
+
+          const userData = userDoc.data();
+
+
+          // Check role
+
+          if(userData.role === "admin"){
+
+            navigate("/admin");
+
+          }
+          else{
+
+            navigate("/dashboard");
+
+          }
+
+
+        }
+        else{
+
+          setError("User profile not found");
+
+        }
+
+
+      } catch(err){
+
+        console.log(err);
+
+        setError(
+          friendlyError(err.code)
+        );
+
+      }
+      finally{
+
+        setLoading(false);
+
+      }
+
+    };
 
   return (
     <div className="login-wrapper">

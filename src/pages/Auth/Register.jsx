@@ -155,14 +155,26 @@ function Register() {
       const otpCode = generateOtp();
       const otpExpiresAt = Date.now() + OTP_VALID_MS;
 
-      await setDoc(doc(db, "users", uid), {
-        ...formData,
-        role: "user", 
-        createdAt: new Date(),
-        emailVerified: false,
-        otpCode,
-        otpExpiresAt,
-      });
+     await setDoc(doc(db, "users", uid), {
+      fullName: formData.fullName,
+      nic: formData.nic,
+      dob: formData.dob,
+      gender: formData.gender,
+      nationality: formData.nationality,
+      email: formData.email,
+      mobile: formData.mobile,
+      address: formData.address,
+
+     role: "user",
+
+      emailVerified: false,
+      status: "pending",
+
+      createdAt: new Date(),
+
+      otpCode,
+      otpExpiresAt,
+    });
 
       // 3. Email the code via EmailJS
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {

@@ -156,6 +156,7 @@ function OTPVerify() {
 
       await updateDoc(userRef, {
         emailVerified: true,
+        status: "pending",
         otpCode: null,
         otpExpiresAt: null,
       });
